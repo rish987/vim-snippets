@@ -44,8 +44,20 @@ def add_row(snip):
 
 endglobal
 
-snippet "\\?b(egin)?" "begin{} / end{}" br
-\begin{${1:something}}
+snippet "b" "begin{} / end{}" br
+\begin{${1:todo}}
+	${0:${VISUAL}}
+\end{$1}
+endsnippet
+
+snippet "bo" "begin{} / end{} w/ optional argument" br
+\begin{${1:todo}}[${2}]
+	${0:${VISUAL}}
+\end{$1}
+endsnippet
+
+snippet "br" "begin{} / end{} w/ required argument" br
+\begin{${1:todo}}{${2}}
 	${0:${VISUAL}}
 \end{$1}
 endsnippet
@@ -241,4 +253,27 @@ snippet glnl "New long glossary item" b
   ${0:description}
 }
 endsnippet
-# vim:ft=snippets:
+
+snippet f "fraction" i
+\frac{${1:1}}{${2}}${0}
+endsnippet
+
+snippet [ "square bracket" i
+[${1}]${0}
+endsnippet
+
+snippet 9 "parentheses" i
+(${1})${0}
+endsnippet
+
+snippet ts "tikz style"
+${1:style}/.style={${2}}${0}
+endsnippet
+
+snippet tpi "general init draw path" i
+(${1}) ${2:todo} (${3})${0};
+endsnippet
+
+snippet tp "general draw path" i
+${1} (${2})${0}
+endsnippet
